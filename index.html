@@ -7,19 +7,77 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.2.0/css/all.min.css" integrity="sha512-6c4nX2tn5KbzeBJo9Ywpa0Gkt+mzCzJBrE1RB6fmpcsoN+b/w/euwIMuQKNyUoU/nToKN3a8SgNOtPrbW12fug==" crossorigin="anonymous" />
   <link rel="stylesheet" href="style.css">
   <title>Document</title>
 </head>
 <body>
-  <header>
-    <h1>PortFolio</h1>
-  </header>
   <div class="section" id="section1">
-    <div id = "section1_detail"></div>
+    <article>
+      <div>
+        <h1>HLO <br> 지금, 당신의 음악 <br></h1>
+        <button>Window 다운로드</button>
+        <button>Mac App Store에서 설치</button>
+      </div>
+      <div class="subBox">
+        <h2>답답한 일상<br> 탈출을 꿈꾸는 <br> 당신에게</h2>
+        <p>총 12곡 | 2022.01.04 new</p>
+        <div class="musicList">
+          <img src="image/main.jpg" />
+          <p><b>노래 하나</b><br>하성화</p>
+        </div>
+        <div class="musicList">
+          <img src="image/main.jpg" />
+          <p><b>노래 둘</b><br>하성화</p>
+        </div>
+        
+      </div>
+    </article>
   </div>
-  <div class="section" id="section2"></div>
-  <div class="section" id="section3"></div>
-  <div class="section" id="section4"></div>
+  <nav id = "pagination">
+    <ul>
+      <li>
+        <button class="selectPage" id="btn1" data-value = 1 >○</button>
+      </li>
+      <li>
+        <button class="selectPage" id="btn2" data-value = 2>○</button>
+      </li>
+      <li>
+        <button class="selectPage" id="btn3" data-value = 3>○</button>
+      </li>
+      <li>
+        <button class="selectPage" id="btn4" data-value = 4>○</button>
+      </li>
+    </ul>
+  </nav>
+  <div class="section" id="section2">   
+    <article>
+      <h1>하성화</h1>
+      <p>메일: tjdghk3920@naver.com
+      </p>
+    </article>
+  </div>
+  <div class="section" id="section3">
+    <article>
+      <h1>하성화</h1>
+      <p>메일: tjdghk3920@naver.com
+      </p>
+    </article>
+  </div>
+  <div class="section" id="section4">
+    <article>
+      <h1>하성화</h1>
+      <p>메일: tjdghk3920@naver.com
+      </p>
+    </article>
+  </div>
+  <div class="section" id="section5">
+    <article>
+      <h1>하성화</h1>
+      <p>메일: tjdghk3920@naver.com
+      </p>
+    </article>
+  </div>
 </body>
 </html>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -27,19 +85,46 @@
   window.addEventListener("wheel", function(e){
     e.preventDefault();
   },{passive : false});
+
   var mHtml = $("html");
   var page = 1;
   mHtml.animate({scrollTop : 0},10);
+
+  let pageChange = (page => {
+    mHtml.animate({scrollTop : (page) * $(window).height()});
+  });
+
   $(window).on("wheel", function(e) {
     if(mHtml.is(":animated")) return;
     if(e.originalEvent.deltaY > 0) {
-        if(page == 4) return;
+        if(page == 5) return;
+        if(page != 1)
+          document.getElementById(`btn${page-1}`).innerHTML="○";
         page++;
+        document.getElementById(`btn${page-1}`).innerHTML="●";
     } else if(e.originalEvent.deltaY < 0) {
         if(page == 1) return;
+        document.getElementById(`btn${page-1}`).innerHTML="○";
         page--;
+        if(page != 1)
+          document.getElementById(`btn${page-1}`).innerHTML="●";
     }
-    var posTop =(page-1) * $(window).height();
-    mHtml.animate({scrollTop : posTop});
+    if(page !== 1){
+      document.getElementById('pagination').style.display="inline";
+    } else {
+      document.getElementById('pagination').style.display="none";
+    }
+    pageChange(page-1);
   })
+
+  let selectPage = document.querySelectorAll(".selectPage");
+  selectPage.forEach(btn => {
+    btn.addEventListener("click", function(e) {
+      pageChange(e.target.dataset.value);
+      document.getElementById(`btn${page-1}`).innerHTML="○";
+      document.getElementById(e.target.id).innerHTML="●";
+      page = Number(e.target.dataset.value) + 1;
+    });
+  });
+  
 </script>
