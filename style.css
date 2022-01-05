@@ -25,6 +25,16 @@ h3 {
   margin: 0px;
   margin-left: 10px;
 }
+ul,
+ol,
+li {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li > img {
+  height: 50px;
+}
 button {
   border: 1px solid white;
   background-color: transparent;
@@ -52,20 +62,17 @@ header {
 nav {
   display: none;
   position: fixed;
-  top: 40%;
-  left: 80%;
+  top: 38%;
+  left: 90%;
   right: 0;
-  z-index: 2;
-}
-
-nav li {
-  list-style-type: none;
+  z-index: 20;
 }
 
 nav .selectPage {
   border: none;
+  color: gray;
   background-color: transparent;
-  font-size: 3rem;
+  font-size: 1rem;
   cursor: pointer;
 }
 
@@ -81,6 +88,7 @@ header ul li {
   height: 100%;
   position: relative;
   background-color: #ccc851;
+  overflow: hidden;
 }
 
 article {
@@ -96,32 +104,193 @@ article {
   background: url(./image/main.jpg) no-repeat center/cover, rgba(0, 0, 0, 0.5);
   background-blend-mode: multiply;
 }
+
+#section2 {
+  background-color: white;
+  color: black;
+  text-align: center;
+  z-index: 2;
+}
+#section2 article {
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-top: 100px;
+  font-weight: 400;
+}
+#section3 {
+  color: black;
+  text-align: center;
+
+  position: relative;
+}
 .subBox {
   font-size: 1.3rem;
   margin-left: 50px;
-  width: 402px;
-  height: 458px;
+  width: 360px;
+  height: 440px;
   background: url(./image/main.jpg) no-repeat center, rgba(0, 0, 0, 0.5);
   background-blend-mode: multiply;
   padding: 10px 40px 0px;
   border-radius: 30px;
 }
-
 .musicList {
-  width: 500px;
-  display: flex;
-  margin: 30px 0px 15px 0px;
+  overflow-x: hidden;
+}
+.phone_inner {
+  position: relative;
+  margin-top: 50px;
+  width: 320px;
+  height: 640px;
+  background: url(./image/sp_intro.798b2085.png);
+  background-position: -685px 0;
 }
 
-.musicList > p {
-  font-weight: 400;
-  display: block;
-  margin: 0px;
-  margin-left: 10px;
+.screen_1 {
+  position: relative;
+  width: 278px;
+  height: 602px;
+  background: url(./image/sp_intro.798b2085.png);
+  background-position: -566px -661px;
+  display: none;
 }
-.subBox > .musicList > img {
-  justify-content: center;
-  align-content: center;
-  width: 65px;
-  height: 65px;
+
+.screen_2 {
+  position: relative;
+  width: 278px;
+  height: 602px;
+  background: url(./image/sp_intro.798b2085.png);
+  background-position: -849px -661px;
+  display: none;
+}
+
+.screen_3 {
+  position: relative;
+  width: 278px;
+  height: 602px;
+  background: url(./image/sp_intro.798b2085.png);
+  background-position: -1294px 0px;
+  display: none;
+}
+
+.screen_4 {
+  position: relative;
+  width: 278px;
+  height: 602px;
+  background: url(./image/sp_intro.798b2085.png);
+  background-position: -1294px -607px;
+  display: none;
+}
+
+.screen_5 {
+  position: relative;
+  width: 278px;
+  height: 602px;
+  background: url(./image/sp_intro.798b2085.png);
+  background-position: -1577px 0px;
+  display: none;
+}
+
+.screen_6 {
+  position: relative;
+  width: 278px;
+  height: 602px;
+  background: url(./image/sp_intro.798b2085.png);
+  background-position: -1577px -607px;
+  display: none;
+}
+
+.screen {
+  position: absolute;
+  left: 7%;
+  height: 640px;
+  top: 19px;
+}
+
+.current {
+  display: block;
+}
+
+.recommend {
+  position: absolute;
+  left: 50%;
+  width: 100%;
+  max-width: 1140px;
+  height: 640px;
+  margin: 0 auto;
+  overflow-x: hidden;
+  transform: translateX(-50%);
+}
+
+.panel {
+  position: absolute;
+  left: 0%;
+  top: 18%;
+
+  animation-name: moveLeft;
+  animation-iteration-count: infinite;
+  animation-duration: 20s;
+  animation-delay: 0.2s;
+  animation-timing-function: linear;
+  will-change: transform;
+}
+
+@keyframes moveLeft {
+  to {
+    transform: translateX(-49.4%);
+  }
+}
+
+#panel-ul {
+  display: flex;
+}
+
+.panel ul li {
+  position: relative;
+  flex: 0 0 auto;
+  flex-basis: 230px;
+  height: 262px;
+  margin-right: 20px;
+  color: transparent;
+  text-indent: 100%;
+  transform: translateZ(0);
+  vertical-align: middle;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.panel_1 {
+  background-image: url(./image/sp_intro.798b2085.png);
+  background-position: 0 -1268px;
+  width: 230px;
+  height: 262px;
+}
+.panel_2 {
+  background-image: url(./image/sp_intro.798b2085.png);
+  background-position: -235px -1268px;
+  width: 230px;
+  height: 262px;
+}
+.panel_3 {
+  background-image: url(./image/sp_intro.798b2085.png);
+  background-position: -470px -1268px;
+  width: 230px;
+  height: 262px;
+}
+.panel_4 {
+  background-image: url(./image/sp_intro.798b2085.png);
+  background-position: -705px -1268px;
+  width: 230px;
+  height: 262px;
+}
+.panel_5 {
+  background-image: url(./image/sp_intro.798b2085.png);
+  background-position: -940px -1268px;
+  width: 230px;
+  height: 262px;
+}
+.panel_6 {
+  background-image: url(./image/sp_intro.798b2085.png);
+  background-position: -1175px -1268px;
+  width: 230px;
+  height: 262px;
 }
