@@ -23,7 +23,7 @@
         <h2>답답한 일상<br> 탈출을 꿈꾸는 <br> 당신에게</h2>
         <p>총 12곡 | 2022.01.04 new</p>
         <div class="track">
-          <div class="animation animationInit" style="--translateY-from:-160px; --translateY-to:-320px;">
+          <div class="animation">
             <ul class="">
               <li>
                 <img src="https://www3.music-flo.com/mmate/feapi/img/intro/list-03-01.png" alt="널 기다리고 있을게 - 수란">
@@ -69,6 +69,9 @@
       <li>
         <button class="selectPage" id="btn4" data-value = 4>○</button>
       </li>
+      <li>
+        <button class="selectPage" id="btn5" data-value = 5>○</button>
+      </li>
     </ul>
   </nav>
   <div class="section" id="section2">   
@@ -110,24 +113,84 @@
   </div>
   <div class="section" id="section3">
     <article>
-      <h2>하성화</h2>
-      <p>
-      </p>
+      <span class="phone_born"></span>
+      <div>
+        <h2>좋아하는 음악 먼저<br>내 취향 MIX</h2>
+        <p>차트, 테마 리스트, 아티스트 상세 화면 어디서든<br>내 취향 MIX만 누르면<br>내 취향에 맞는 곡 순서로 변경됩니다.</p>
+      </div>
     </article>
   </div>
   <div class="section" id="section4">
     <article>
-      <h2>하성화</h2>
-      <p>
-      </p>
+      <div>
+        <h2>끊임없는 음악여행<br>JUMP</h2>
+        <p>지금 듣고 있는 음악이 마음에 들면 JUMP 해보세요.<br>FLO가 더 들을 만한 음악으로<br>끊임없이 연결해 드려요.</p>
+      </div>
+      <span class="phone_born"></span>
     </article>
   </div>
   <div class="section" id="section5">
     <article>
-      <h2>하성화</h2>
-      <p>
-      </p>
+      <h2>기분에 따라 상황에 따라<br>멀티 캐릭터</h2>
+      <p>운동할 때, 휴식을 취할 때, 아이와 함께 있을 때…<br>그때 그때 들은 음악이 모두 섞여 불편한가요?<br>멀티 캐릭터로 재생목록 편집 없이 손쉽게 음악을 즐기세요.</p>
+      <div class="phone_wrap">
+        <div class="background_thumbs">
+          <span class="background_thumb"></span>
+          <span class="background_thumb"></span>
+          <span class="background_thumb"></span>
+          <span class="background_thumb"></span>
+          <span class="background_thumb"></span>
+          <span class="background_thumb"></span>
+          <span class="background_thumb"></span>
+          <span class="background_thumb"></span>
+        </div>
+        <div class="phone_inner">
+          <div class="screen">
+            <div class="character_1 character">캐릭터 관리-운동할 때</div>
+            <div class="character_2 character">캐릭터 관리-힙하고 싶을 때</div>
+            <div class="character_3 character">캐릭터 관리-아가 노래</div>
+          </div>
+        </div>
+      </div>
     </article>
+  </div>
+  <div class="section" id="section6">
+    <div class="cont_inner cont_inner_vertical">
+      <div class="cont_title_area">
+        <h2>FLO 이용권 골라쓰기</h2>
+      </div>
+      <div class="voucher">
+        <dl class="item_down">
+          <dt> 무제한 듣기+오프라인 재생 
+            <span class="price">10,900원</span>
+          </dt>
+          <dd>데이터 소진없이 무제한 재생하고 싶다면</dd>
+          <dd>VAT별도 / 기기 제한 없음</dd>
+        </dl>
+        <dl class="item_all">
+          <dt> 무제한 듣기 
+            <span class="price">7,900원</span>
+          </dt>
+          <dd>모바일, PC, NUGU 모든 기기 무제한으로</dd>
+          <dd>VAT별도 / 기기 제한 없음</dd>
+        </dl>
+        <dl class="item_mobile">
+          <dt> 모바일 무제한 듣기 
+            <span class="price">6,900원</span>
+          </dt>
+          <dd>모바일에서만 듣는다면 스마트하게</dd>
+          <dd>VAT별도 / 모바일 전용</dd>
+        </dl>
+        <button class="btn_voucher">구매하러 가기</button>
+      </div>
+      <div class="share">
+        <h3 class="hidden"></h3>
+        <button type="button" class="btn_facebook">페이스북 공유하기</button>
+        <button type="button" class="btn_instagram">인스타그램 공유하기</button>
+        <button type="button" class="btn_twitter">트위터 공유하기</button>
+        <button type="button" class="btn_youtube">유튜브 공유하기</button>
+      </div>
+    </div>
   </div>
 </body>
 </html>
@@ -148,7 +211,7 @@
   $(window).on("wheel", function(e) {
     if(mHtml.is(":animated")) return;
     if(e.originalEvent.deltaY > 0) {
-        if(page == 5) return;
+        if(page == 6) return;
         if(page != 1)
           document.getElementById(`btn${page-1}`).innerHTML="○";
         page++;
@@ -181,6 +244,11 @@
   let nCnt = 0;	
   async function asyncHello() {
     return new Promise(resolve => setTimeout(() => { 
+      if(nCnt%3 == 0){
+        document.getElementById('section3').style.backgroundColor = "pink";
+      } else {
+        document.getElementById('section3').style.backgroundColor = "#eff4ff";
+      }
       nCnt++;     
       if(nCnt === 7){
         nCnt = 1;

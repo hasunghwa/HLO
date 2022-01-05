@@ -32,8 +32,35 @@ li {
   padding-left: 0;
 }
 
+.animation {
+  overflow: hidden;
+  height: 180px;
+}
+
+.animation > ul {
+  animation-name: moveTop;
+  animation-iteration-count: infinite;
+  animation-duration: 15s;
+  animation-delay: 0.2s;
+  will-change: transform;
+}
+@keyframes moveTop {
+  0% {
+    transform: translateY(0);
+  }
+  33% {
+    transform: translateY(-26.4%);
+  }
+  66% {
+    transform: translateY(-51.4%);
+  }
+  100% {
+    transform: translateY(-76.3%);
+  }
+}
 li > img {
-  height: 50px;
+  margin-bottom: 10px;
+  height: 70px;
 }
 button {
   border: 1px solid white;
@@ -89,6 +116,7 @@ header ul li {
   position: relative;
   background-color: #ccc851;
   overflow: hidden;
+  text-align: center;
 }
 
 article {
@@ -108,10 +136,10 @@ article {
 #section2 {
   background-color: white;
   color: black;
-  text-align: center;
   z-index: 2;
 }
-#section2 article {
+#section2 article,
+#section5 article {
   flex-direction: column;
   justify-content: flex-end;
   margin-top: 100px;
@@ -119,9 +147,39 @@ article {
 }
 #section3 {
   color: black;
-  text-align: center;
+  text-align: left;
+  background-color: #eff4ff;
+}
+#section4 {
+  animation-name: changecolor;
+  animation-iteration-count: infinite;
+  animation-duration: 15s;
+  animation-delay: 0.2s;
+  will-change: transform;
+}
+@keyframes changecolor {
+  0% {
+    background-color: #d77fa1;
+  }
+  50% {
+    background-color: #ccc851;
+  }
+  100% {
+    background-color: #d77fa1;
+  }
+}
 
-  position: relative;
+#section5 {
+  background-color: black;
+}
+#section6 {
+  background-color: #3f3fff;
+}
+.phone_born {
+  background: url(./image/sp_intro.798b2085.png);
+  background-position: 0 0;
+  width: 338px;
+  height: 656px;
 }
 .subBox {
   font-size: 1.3rem;
@@ -133,9 +191,7 @@ article {
   padding: 10px 40px 0px;
   border-radius: 30px;
 }
-.musicList {
-  overflow-x: hidden;
-}
+
 .phone_inner {
   position: relative;
   margin-top: 50px;
@@ -293,4 +349,212 @@ article {
   background-position: -1175px -1268px;
   width: 230px;
   height: 262px;
+}
+.character {
+  position: relative;
+  width: 278px;
+  height: 602px;
+}
+.character_1 {
+  background: url(./image/sp_intro.798b2085.png);
+  background-position: -283px -661px;
+}
+.character_2 {
+  background: url(./image/sp_intro.798b2085.png);
+  background-position: -283px -661px;
+}
+.character_3 {
+  background: url(./image/sp_intro.798b2085.png);
+  background-position: -283px -661px;
+}
+.background_thumbs {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  will-change: opacity;
+}
+.background_thumb {
+  position: absolute;
+  background-color: #171717;
+  border-radius: 6px;
+  transition: all 0.5s;
+  transform: translate(0);
+  overflow: hidden;
+  will-change: transform;
+
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in;
+}
+.background_thumb:first-child {
+  animation-name: chracterBgMove1;
+  transform: scale(0.79);
+
+  bottom: 340px;
+  left: 25px;
+  width: 220px;
+  height: 220px;
+
+  background: url(./image/sp_intro.798b2085.png);
+  background-position: -1410px -1268px;
+}
+@keyframes chracterBgMove1 {
+  80% {
+    transform: scale(0.79) translate(-105px, -10px);
+  }
+}
+.background_thumb:nth-child(2) {
+  animation-name: chracterBgMove2;
+  transform: scale(0.65);
+
+  bottom: 466px;
+  left: 150px;
+  width: 220px;
+  height: 220px;
+
+  background: url(./image/sp_intro.798b2085.png);
+  background-position: -1635px -1268px;
+}
+@keyframes chracterBgMove2 {
+  80% {
+    transform: scale(0.65) translate(-155px);
+  }
+}
+.background_thumb:nth-child(3) {
+  animation-name: chracterBgMove3;
+  filter: blur(1px);
+  transform: scale(0.4);
+
+  bottom: 430px;
+  left: 360px;
+  width: 220px;
+  height: 220px;
+
+  background: url(./image/sp_intro.798b2085.png);
+  background-position: 0 -1535px;
+}
+@keyframes chracterBgMove3 {
+  80% {
+    transform: scale(0.65) translate(-95px);
+  }
+}
+.background_thumb:nth-child(4) {
+  animation-name: chracterBgMove4;
+  transform: scale(1);
+
+  bottom: 180px;
+  left: 415px;
+  width: 220px;
+  height: 220px;
+
+  background: url(./image/sp_intro.798b2085.png);
+  background-position: -225px -1535px;
+}
+@keyframes chracterBgMove4 {
+  80% {
+    transform: scale(1.2) translate(-20px, -10px);
+  }
+}
+.background_thumb:nth-child(5) {
+  animation-name: chracterBgMove5;
+  transform: scale(0.75);
+
+  bottom: 460px;
+  right: 405px;
+  width: 220px;
+  height: 220px;
+
+  background: url(./image/sp_intro.798b2085.png);
+  background-position: -450px -1535px;
+}
+@keyframes chracterBgMove5 {
+  80% {
+    transform: scale(0.79) translate(55px, -10px);
+  }
+}
+.background_thumb:nth-child(6) {
+  animation-name: chracterBgMove6;
+  transform: scale(0.36);
+  filter: blur(1.5px);
+
+  bottom: 160px;
+  right: 345px;
+  width: 220px;
+  height: 220px;
+
+  background: url(./image/sp_intro.798b2085.png);
+  background-position: -675px -1535px;
+}
+@keyframes chracterBgMove6 {
+  80% {
+    transform: scale(0.45) translate(95px, -20px);
+  }
+}
+.background_thumb:nth-child(7) {
+  animation-name: chracterBgMove7;
+  filter: blur(0.5px);
+  transform: scale(0.5);
+
+  bottom: 230px;
+  right: 280px;
+  width: 220px;
+  height: 220px;
+
+  background: url(./image/sp_intro.798b2085.png);
+  background-position: -900px -1535px;
+}
+@keyframes chracterBgMove7 {
+  80% {
+    transform: scale(0.65) translate(95px, -20px);
+  }
+}
+.background_thumb:nth-child(8) {
+  animation-name: chracterBgMove8;
+  transform: scale(0.86);
+
+  bottom: 435px;
+  right: 30px;
+  width: 220px;
+  height: 220px;
+
+  background: url(./image/sp_intro.798b2085.png);
+  background-position: -1125px -1535px;
+}
+@keyframes chracterBgMove8 {
+  80% {
+    transform: scale(1) translate(125px, -20px);
+  }
+}
+.phone_wrap {
+  position: relative;
+  min-width: 955px;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+.cont_inner_horizontal,
+.cont_inner_vertical {
+  display: flex;
+  align-items: center;
+}
+.cont_inner_vertical {
+  flex-direction: column;
+  justify-content: center;
+  min-height: 1142px;
+}
+.voucher {
+  margin-top: 3.2258vh;
+  margin-bottom: 8.0645vh;
+  color: #fff;
+}
+.voucher > dl {
+  position: relative;
+  display: inline-block;
+  width: 230px;
+  padding: 184px 40px 38px;
+  text-align: left;
 }
