@@ -113,8 +113,8 @@
   </div>
   <div class="section" id="section3">
     <article>
-      <span class="phone_born"></span>
-      <div>
+      <span class="phone_born"><div style="overflow:hidden; left: 6%; top: 19px;" id="screen_1" class="screen_1 current"></div></span>
+      <div class="desc">
         <h2>좋아하는 음악 먼저<br>내 취향 MIX</h2>
         <p>차트, 테마 리스트, 아티스트 상세 화면 어디서든<br>내 취향 MIX만 누르면<br>내 취향에 맞는 곡 순서로 변경됩니다.</p>
       </div>
@@ -122,11 +122,11 @@
   </div>
   <div class="section" id="section4">
     <article>
-      <div>
+      <div class="desc">
         <h2>끊임없는 음악여행<br>JUMP</h2>
         <p>지금 듣고 있는 음악이 마음에 들면 JUMP 해보세요.<br>FLO가 더 들을 만한 음악으로<br>끊임없이 연결해 드려요.</p>
       </div>
-      <span class="phone_born"></span>
+      <span class="phone_born"><div style="overflow:hidden; left: 6%; top: 19px;" id="screen_5" class="screen_5 current"></div></span>
     </article>
   </div>
   <div class="section" id="section5">
@@ -146,9 +146,9 @@
         </div>
         <div class="phone_inner">
           <div class="screen">
-            <div class="character_1 character">캐릭터 관리-운동할 때</div>
-            <div class="character_2 character">캐릭터 관리-힙하고 싶을 때</div>
-            <div class="character_3 character">캐릭터 관리-아가 노래</div>
+            <div id="character_1" class="character_1 character current">캐릭터 관리-운동할 때</div>
+            <div id="character_2" class="character_2 character">캐릭터 관리-힙하고 싶을 때</div>
+            <div id="character_3" class="character_3 character">캐릭터 관리-아가 노래</div>
           </div>
         </div>
       </div>
@@ -249,14 +249,23 @@
       } else {
         document.getElementById('section3').style.backgroundColor = "#eff4ff";
       }
-      nCnt++;     
+      nCnt++;
+      if(nCnt == 2){
+        document.getElementById(`character_1`).classList.remove('current');
+        document.getElementById(`character_2`).className += ' current';
+      } else if(nCnt == 4){
+        document.getElementById(`character_2`).classList.remove('current');
+        document.getElementById(`character_3`).className += ' current';
+      } else if(nCnt == 6){
+        document.getElementById(`character_3`).classList.remove('current');
+        document.getElementById(`character_1`).className += ' current';
+      } 
       if(nCnt === 7){
         nCnt = 1;
         document.getElementById(`screen_6`).classList.remove('current');
         document.getElementById(`screen_1`).className += ' current';
       }
       if(nCnt!= 1 && nCnt < 7){
-        console.log(nCnt);
         document.getElementById(`screen_${nCnt-1}`).classList.remove('current');
         document.getElementById(`screen_${nCnt}`).className += ' current';
       } 
