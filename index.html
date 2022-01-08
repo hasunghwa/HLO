@@ -9,7 +9,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.2.0/css/all.min.css" integrity="sha512-6c4nX2tn5KbzeBJo9Ywpa0Gkt+mzCzJBrE1RB6fmpcsoN+b/w/euwIMuQKNyUoU/nToKN3a8SgNOtPrbW12fug==" crossorigin="anonymous" />
   <link rel="stylesheet" href="style.css">
-  <title>Document</title>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script type="text/javascript" src="index.js"></script>
+  <title>HLO</title>
 </head>
 <body>
   <div class="section" id="section1">
@@ -124,7 +126,7 @@
     <article>
       <div class="desc">
         <h2>끊임없는 음악여행<br>JUMP</h2>
-        <p>지금 듣고 있는 음악이 마음에 들면 JUMP 해보세요.<br>FLO가 더 들을 만한 음악으로<br>끊임없이 연결해 드려요.</p>
+        <p>지금 듣고 있는 음악이 마음에 들면 JUMP 해보세요.<br>HLO가 더 들을 만한 음악으로<br>끊임없이 연결해 드려요.</p>
       </div>
       <span class="phone_born"><div style="overflow:hidden; left: 6%; top: 19px;" id="screen_5" class="screen_5 current"></div></span>
     </article>
@@ -157,7 +159,7 @@
   <div class="section" id="section6">
     <div class="cont_inner cont_inner_vertical">
       <div class="cont_title_area">
-        <h2>FLO 이용권 골라쓰기</h2>
+        <h2>HLO 이용권 골라쓰기</h2>
       </div>
       <div class="voucher">
         <dl class="item_down">
@@ -194,96 +196,3 @@
   </div>
 </body>
 </html>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<script>
-  window.addEventListener("wheel", function(e){
-    e.preventDefault();
-  },{passive : false});
-
-  var mHtml = $("html");
-  var page = 1;
-  mHtml.animate({scrollTop : 0},10);
-
-  let pageChange = (page => {
-    mHtml.animate({scrollTop : (page) * $(window).height()});
-  });
-
-  $(window).on("wheel", function(e) {
-    if(mHtml.is(":animated")) return;
-    if(e.originalEvent.deltaY > 0) {
-        if(page == 6) return;
-        if(page != 1)
-          document.getElementById(`btn${page-1}`).innerHTML="○";
-        page++;
-        document.getElementById(`btn${page-1}`).innerHTML="●";
-    } else if(e.originalEvent.deltaY < 0) {
-        if(page == 1) return;
-        document.getElementById(`btn${page-1}`).innerHTML="○";
-        page--;
-        if(page != 1)
-          document.getElementById(`btn${page-1}`).innerHTML="●";
-    }
-    if(page !== 1){
-      document.getElementById('pagination').style.display="inline";
-    } else {
-      document.getElementById('pagination').style.display="none";
-    }
-    pageChange(page-1);
-  })
-
-  let selectPage = document.querySelectorAll(".selectPage");
-  selectPage.forEach(btn => {
-    btn.addEventListener("click", function(e) {
-      pageChange(e.target.dataset.value);
-      document.getElementById(`btn${page-1}`).innerHTML="○";
-      document.getElementById(e.target.id).innerHTML="●";
-      page = Number(e.target.dataset.value) + 1;
-    });
-  });
-
-  let nCnt = 0;	
-  async function asyncHello() {
-    return new Promise(resolve => setTimeout(() => { 
-      if(nCnt%3 == 0){
-        document.getElementById('section3').style.backgroundColor = "pink";
-      } else {
-        document.getElementById('section3').style.backgroundColor = "#eff4ff";
-      }
-      nCnt++;
-      if(nCnt == 2){
-        document.getElementById(`character_1`).classList.remove('current');
-        document.getElementById(`character_2`).className += ' current';
-      } else if(nCnt == 4){
-        document.getElementById(`character_2`).classList.remove('current');
-        document.getElementById(`character_3`).className += ' current';
-      } else if(nCnt == 6){
-        document.getElementById(`character_3`).classList.remove('current');
-        document.getElementById(`character_1`).className += ' current';
-      } 
-      if(nCnt === 7){
-        nCnt = 1;
-        document.getElementById(`screen_6`).classList.remove('current');
-        document.getElementById(`screen_1`).className += ' current';
-      }
-      if(nCnt!= 1 && nCnt < 7){
-        document.getElementById(`screen_${nCnt-1}`).classList.remove('current');
-        document.getElementById(`screen_${nCnt}`).className += ' current';
-      } 
-      asyncHello();
-    }, 2000))
-  }
-  async function main() {
-    const promises = [];
-    for (var i = 0; i < 10; i++) {
-      promises.push(asyncHello(i));
-    }
-    await Promise.all(promises);
-  }
-  
-  function startAnimation()
-  {
-    obTimeOut = window.setTimeout(asyncHello,100); // 윈도우 로드 후 0.1초 후에 반복함수를 호출합니다.
-  }
-  window.onload = startAnimation;
-
-</script>
