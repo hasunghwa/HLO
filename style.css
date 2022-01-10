@@ -129,7 +129,8 @@ article {
 }
 
 #section1 {
-  background: url(./image/main.jpg) no-repeat center/cover, rgba(0, 0, 0, 0.5);
+  background: url(./image/main-bg-03.26ae672b.png) no-repeat center/cover,
+    rgba(0, 0, 0, 0.5);
   background-blend-mode: multiply;
 }
 
